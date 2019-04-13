@@ -10,7 +10,10 @@ async def get_overwatch_profile(user):
 
     async def fetch(session, url):
         async with session.get(url) as response:
-            return await response.json()
+            try:
+                return await response.json()
+            except:
+                return response
 
     async def main():
         async with aiohttp.ClientSession() as session:
@@ -38,6 +41,7 @@ async def form_stats_message(profile, hero):
 class Overwatch():
     def __init__(self, bot):
         self.bot = bot
+        logger.debug("Module Overwatch loaded...")
 
     # --------- Competitive Rating ---------- #
     @commands.command(aliases=['sr'])

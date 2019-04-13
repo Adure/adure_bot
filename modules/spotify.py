@@ -61,6 +61,7 @@ async def refresh_auth_token():
 class Spotify():
     def __init__(self, bot):
         self.bot = bot
+        logger.debug("Module Spotify loaded...")
         self.bot.loop.create_task(refresh_auth_token())
 
     @commands.command(aliases=['song'])

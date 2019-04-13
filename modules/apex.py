@@ -24,6 +24,7 @@ async def get_apex_profile(user):
 class Apex():
     def __init__(self, bot):
         self.bot = bot
+        logger.debug("Module Apex loaded...")
 
     # ---------------- Kills ---------------- #
     @commands.command(aliases=['kills'])

@@ -43,9 +43,10 @@ On_Purple = "\033[45m"      # Purple
 On_Cyan = "\033[46m"        # Cyan
 On_White = "\033[47m"       # White
 
-logging.getLogger("twitchio.client").setLevel(logging.ERROR)
-logging.getLogger("twitchio.http").setLevel(logging.ERROR)
-logging.getLogger("twitchio.websocket").setLevel(logging.ERROR)
+logging.getLogger("twitchio").setLevel(logging.ERROR)
+# logging.getLogger("twitchio.client").setLevel(logging.ERROR)
+# logging.getLogger("twitchio.http").setLevel(logging.ERROR)
+# logging.getLogger("twitchio.websocket").setLevel(logging.ERROR)
 logging.getLogger("websockets.protocol").setLevel(logging.ERROR)
 
 def setup_logger(logger):

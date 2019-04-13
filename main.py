@@ -1,5 +1,5 @@
 from twitchio.ext import commands
-import requests
+from requests import get as _get
 import aiohttp
 import sys
 import os
@@ -9,14 +9,14 @@ import traceback
 import logger as _logger
 from auth import access_token, token, api_token, client_id, trn_token
 
-twitch = requests.get('https://api.twitch.tv/kraken/channel', headers={
+twitch_channel = _get('https://api.twitch.tv/kraken/channel', headers={
     'Content-Type': 'application/vnd.twitchtv.v5+json',
     'Client-ID': client_id,
     'Authorization': access_token
-    })
-channel_id = twitch.json()['_id']
+})
+channel_id = twitch_channel.json()['_id']
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger()
 _logger.setup_logger(logger)
 
 
@@ -37,8 +37,10 @@ class Botto(commands.Bot):
 
     # ON READY EVENT
     async def event_ready(self):
-        logger.info("Ready!")
+        logger.info(f"Logged in as {self.nick}")
         modules = ['modules.overwatch', 'modules.apex', 'modules.spotify']
+        strp_name = [module.replace("modules.", "") for module in modules]
+        logger.debug(f"Loading modules...   {', '.join(strp_name)}")
         for module in modules:
             self.load_module(module)
 
