@@ -74,6 +74,7 @@ def setup_logger(logger):
 			else:
 				colour = Color_Off
 			args[0].levelname = "{0}{1}\033[0;0m".format(colour, args[0].levelname)
+			args[0].name = "{0}{1}\033[0;0m".format(BBlack, args[0].name)
 
 			return fn(*args)
 		return new
