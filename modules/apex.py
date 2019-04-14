@@ -6,7 +6,7 @@ logger = logging.getLogger(__name__)
 
 
 async def get_apex_profile(user):
-    logger.debug("Retrieving Apex Legends profile...")
+    logger.debug("Retrieving profile...")
 
     async def fetch(session, url):
         async with session.get(url, headers={"TRN-Api-Key": trn_token}) as response:
@@ -24,7 +24,7 @@ async def get_apex_profile(user):
 class Apex():
     def __init__(self, bot):
         self.bot = bot
-        logger.debug("Module Apex loaded...")
+        logger.debug("Loaded...")
 
     # ---------------- Kills ---------------- #
     @commands.command(aliases=['kills'])

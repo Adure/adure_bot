@@ -44,13 +44,11 @@ On_Cyan = "\033[46m"        # Cyan
 On_White = "\033[47m"       # White
 
 logging.getLogger("twitchio").setLevel(logging.ERROR)
-# logging.getLogger("twitchio.client").setLevel(logging.ERROR)
-# logging.getLogger("twitchio.http").setLevel(logging.ERROR)
-# logging.getLogger("twitchio.websocket").setLevel(logging.ERROR)
-logging.getLogger("websockets.protocol").setLevel(logging.ERROR)
+logging.getLogger("asyncio").setLevel(logging.ERROR)
+logging.getLogger("websockets").setLevel(logging.ERROR)
 
 def setup_logger(logger):
-	formatter = logging.Formatter('[%(asctime)s] [%(levelname)s]: %(message)s', '%Y-%m-%d %H:%M:%S')
+	formatter = logging.Formatter('[%(asctime)s] [%(levelname)s] [%(name)s]: %(message)s', '%d/%m/%Y %H:%M')
 	fh = logging.FileHandler('logs.log')
 	sh = logging.StreamHandler()
 	fh.setFormatter(formatter)

@@ -6,7 +6,7 @@ logger = logging.getLogger(__name__)
 
 
 async def get_overwatch_profile(user):
-    logger.debug("Retrieving Overwatch profile...")
+    logger.debug("Retrieving profile...")
 
     async def fetch(session, url):
         async with session.get(url) as response:
@@ -41,7 +41,7 @@ async def form_stats_message(profile, hero):
 class Overwatch():
     def __init__(self, bot):
         self.bot = bot
-        logger.debug("Module Overwatch loaded...")
+        logger.debug("Loaded...")
 
     # --------- Competitive Rating ---------- #
     @commands.command(aliases=['sr'])

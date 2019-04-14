@@ -38,9 +38,9 @@ class Botto(commands.Bot):
     # ON READY EVENT
     async def event_ready(self):
         logger.info(f"Logged in as {self.nick}")
+        logger.info(f"Connected to channels...  {', '.join(self.initial_channels)}")
         modules = ['modules.overwatch', 'modules.apex', 'modules.spotify']
-        strp_name = [module.replace("modules.", "") for module in modules]
-        logger.debug(f"Loading modules...   {', '.join(strp_name)}")
+        logger.debug(f"Loading modules...   {', '.join([module.replace('modules.', '') for module in modules])}")
         for module in modules:
             self.load_module(module)
 
